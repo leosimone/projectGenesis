@@ -3,14 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <script src="scripts/main.js"></script>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <title>Document</title>
-</head>
-<body>
-    <h1>test</h1>
-    <button onclick="handleClick()" style="width: 100px; height: 30px;" id="getUsers" name="getUsers" value="getUsers">getUsers</button>
+    <meta name="viewport" content="initial-scale=1.0"/>
 
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Genesis Project</title>
+</head>
+<body >
+    <div class="container">
+    <h2>Users list</h2>
+
+    <ul id="usersApi"></ul>
+
+    <div class="table">
+        <table id="infoTable">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="insert">
+        <div class="insertForm">
+            <form >
+                <label for="">Name</label>
+                <input type="text" required>
+                <label for="">CPF</label>
+                <input type="text" required>
+                <label for="">Phone</label>
+                <input type="text" required>
+                <label for="">Email</label>
+                <input type="text" required>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+    <button onclick="handleClick()" style="width: 100px; height: 30px;" id="getUsers" name="getUsers" value="getUsers">Save</button>
+    </div>
+
+        <!-- <span class="material-icons">face</span> -->
 </body>
+
 </html>
+<script src="main.js"></script>
