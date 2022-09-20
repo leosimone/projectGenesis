@@ -19,31 +19,36 @@
         <table id="infoTable">
             <thead>
                 <tr>
+                    <th>Name</th>
+                    <th>CPF</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+
+            </tbody>
         </table>
     </div>
     <div class="insert">
         <div class="insertForm">
             <form >
-                <label for="">Name</label>
-                <input type="text" required>
-                <label for="">CPF</label>
-                <input type="text" required>
-                <label for="">Phone</label>
-                <input type="text" required>
-                <label for="">Email</label>
-                <input type="text" required>
+                <label for="formName">Name</label>
+                <input id="inputName" type="text" required>
+                <label for="formCpf">CPF</label>
+                <input id="inputCpf" type="text" required>
+                <label for="formPhone">Phone</label>
+                <input id="inputPhone" type="text" required>
+                <label for="formEmail">Email</label>
+                <input id="inputEmail" type="text" required>
 
             </form>
         </div>
-
-
-
     </div>
 
-    <button onclick="handleClick()" style="width: 100px; height: 30px;" id="getUsers" name="getUsers" value="getUsers">Save</button>
+    <button onclick="handleClick()" style="width: 100px; height: 30px;" id="btnSubmit" name="getUsers" value="getUsers">Submit</button>
     </div>
 
         <!-- <span class="material-icons">face</span> -->
