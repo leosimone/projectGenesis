@@ -15,6 +15,17 @@ html, body{
     
 }
 
+input:focus::placeholder {
+    color: transparent;
+  }
+
+input{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #efeeed;
+        
+}
+
 #landPage {
    background-color: rgb(2,0,36); 
    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 35%, rgb(226, 230, 231) 100%);

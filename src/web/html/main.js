@@ -2,38 +2,69 @@ async function handleClick() {
     const ul = document.getElementById('usersApi');
     const list = document.createDocumentFragment();
     const url = 'https://private-847f5-ivangenesis.apiary-mock.com/users';
-    const users = fetch('https://private-847f5-ivangenesis.apiary-mock.com/users').then(async (res) => {
+
+    const users = await fetch('https://private-847f5-ivangenesis.apiary-mock.com/users').then(async (res) => {
     const response = await res.json()
     return response;
 });
 
+const newTable = document.createElement("table");
+const header = document.createElement("thead");
+const body = document.createElement("tbody");
+const td = document.createElement("td");
+
+td.innerHTML = `${users[0].name}`;
+td.innerHTML = `${users[0].cpf}`;
+td.innerHTML = `${users[0].phone}`;
+td.innerHTML = `${users[0].email}`;
+
+newTable.appendChild(header);
+newTable.appendChild(body);
+newTable.appendChild(td);
+document.getElementById("usersApi").appendChild(newTable);
+
+
+
 }
 
-function getInfo(users){
+function getInfo(){
 
-        users.map(function(user){
-        const li = document.createElement('li');
-        const name = document.createElement('h2');
-        const email = document.createElement('span');
-        const cpf = document.createElement('span');
-        const phone = document.createElement('span');
+    // const usuario = users[0].name
+    // const newTable = document.createElement("table");
+    // const header = document.createElement("thead");
+    // const body = document.createElement("tbody");
+    // const td = document.createElement("td");
 
-        name.innerHTML = `${user.name}`;
-        email.innerHTML = `${user.email}`;
-        cpf.innerHTML = `${user.CPF}`;
-        phone.innerHTML = `${user.phone}`;
+    // td.innerHTML = `${usuario}`;
+    // newTable.appendChild(header);
+    // newTable.appendChild(body);
+    // newTable.appendChild(td);
+    // document.getElementById("usersApi").appendChild(newTable);
 
 
-        li.appendChild(name);
-        li.appendChild(email);
-        li.appendChild(cpf);
-        li.appendChild(phone);
-        list.appendChild(li);
-    });
+    //     users.map(function(user){
+    //     const li = document.createElement('li');
+    //     const name = document.createElement('h2');
+    //     const email = document.createElement('span');
+    //     const cpf = document.createElement('span');
+    //     const phone = document.createElement('span');
 
-ul.appendChild(list);
+    //     name.innerHTML = `${user.name}`;
+    //     email.innerHTML = `${user.email}`;
+    //     cpf.innerHTML = `${user.CPF}`;
+    //     phone.innerHTML = `${user.phone}`;
+
+
+    //     li.appendChild(name);
+    //     li.appendChild(email);
+    //     li.appendChild(cpf);
+    //     li.appendChild(phone);
+    //     list.appendChild(li);
+    // });
+
+// ul.appendChild(list);
 }
-document.onload(getInfo());
+// document.onload(getInfo());
 
     // const fetchTableData = ( => {
     //     return fetch('https://private-847f5-ivangenesis.apiary-mock.com/users')
@@ -76,7 +107,7 @@ document.onload(getInfo());
 
 
 
-// function getInfo(response){
+// function getInfo(users){
 // const datatable = document.querySelector('.infoTable')
 // const tbody = datatable.querySelector('tbody')
 // const thead = datatable.querySelector('thead')
@@ -103,15 +134,15 @@ document.onload(getInfo());
 //     `
 // ));
 
-// // }
+// }
 // tbody.innerHTML = rowsTable.join('');
 // }
 
-const tbody = document.querySelector('tbody');
-const nameUser = document.querySelector('formName');
-const cpf = document.querySelector('formCpf');
-const phone = document.querySelector('formPhone');
-const email = document.querySelector('formEmail');
+const tbody = document.querySelector('#tbody');
+const nameUser = document.querySelector('#formName');
+const cpf = document.querySelector('#formCpf');
+const phone = document.querySelector('#formPhone');
+const email = document.querySelector('#formEmail');
 const btnSubmit = document.querySelector('#btnSubmit');
 
 let itens = ''; //itens para manipulação das informações do localstorage
@@ -197,3 +228,4 @@ btnSubmit.onclick = e => {
     loadInformation() // carrega as novas informações
     id = undefined // id undefined para pegar novo
   }
+

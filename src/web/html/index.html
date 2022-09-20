@@ -10,10 +10,10 @@
     <title>Genesis Project</title>
 </head>
 <body >
-    <div class="container" onload="getInfo()">
+    <div class="container" onload="handleClick()">
     <h2>Users list</h2>
 
-    <ul id="usersApi"></ul>
+    <div id="usersApi"></div>
 
     <div class="table">
         <table id="infoTable" >
@@ -35,15 +35,14 @@
     <div class="insert">
         <div class="insertForm">
             <form >
-                <label for="formName">Name</label>
-                <input id="inputName" type="text" required>
-                <label for="formCpf">CPF</label>
-                <input id="inputCpf" type="text" required>
-                <label for="formPhone">Phone</label>
-                <input id="inputPhone" type="text" required>
-                <label for="formEmail">Email</label>
-                <input id="inputEmail" type="text" required>
+         
+                <input id="inputName" type="text" placeholder="Full name" required>
 
+                <input id="inputCpf" type="text" placeholder="Cpf" required>
+ 
+                <input id="inputPhone" type="text" placeholder="Phone" required>
+        
+                <input id="inputEmail" type="text" placeholder="Email" required>
             </form>
         </div>
     </div>
