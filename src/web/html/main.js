@@ -229,3 +229,10 @@ btnSubmit.onclick = e => {
     id = undefined // id undefined para pegar novo
   }
 
+function inputLength(){
+    if(document.getElementById('inputName').value.length < 3){
+        document.querySelector('#btnSubmit').disabled = true;
+    }else{
+        document.querySelector('#btnSubmit').disabled = false;  
+    }
+}
