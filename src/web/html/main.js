@@ -2,34 +2,38 @@ async function handleClick() {
     const ul = document.getElementById('usersApi');
     const list = document.createDocumentFragment();
     const url = 'https://private-847f5-ivangenesis.apiary-mock.com/users';
-
-
-
     const users = fetch('https://private-847f5-ivangenesis.apiary-mock.com/users').then(async (res) => {
-    const response = await res.json()    
+    const response = await res.json()
     return response;
 });
 
+}
 
-// function getInfo(users){
+function getInfo(users){
 
-//     users.map(function(user){
-//         const li = document.createElement('li');
-//         const name = document.createElement('h2');
-//         const email = document.createElement('span');
+        users.map(function(user){
+        const li = document.createElement('li');
+        const name = document.createElement('h2');
+        const email = document.createElement('span');
+        const cpf = document.createElement('span');
+        const phone = document.createElement('span');
 
-//         name.innerHTML = `${user.name}`;
-//         email.innerHTML = `${user.email}`;
+        name.innerHTML = `${user.name}`;
+        email.innerHTML = `${user.email}`;
+        cpf.innerHTML = `${user.CPF}`;
+        phone.innerHTML = `${user.phone}`;
 
-//         li.appendChild(name);
-//         li.appendChild(email);
-//         list.appendChild(li);
 
-//     });
+        li.appendChild(name);
+        li.appendChild(email);
+        li.appendChild(cpf);
+        li.appendChild(phone);
+        list.appendChild(li);
+    });
 
-// ul.appendChild(list);
-// }
-
+ul.appendChild(list);
+}
+document.onload(getInfo());
 
     // const fetchTableData = ( => {
     //     return fetch('https://private-847f5-ivangenesis.apiary-mock.com/users')
@@ -68,52 +72,53 @@ async function handleClick() {
 
     //     console.log(users);
        // return JSON.stringify(users);
-    }
 
 
-function getInfo(users){
-const datatable = document.querySelector('.infoTable')
-const tbody = datatable.querySelector('tbody')
-const thead = datatable.querySelector('thead')
 
-const columns = ['id', 'Name', 'CPF', 'Phone', 'Email'];
 
-const rows = users
+// function getInfo(response){
+// const datatable = document.querySelector('.infoTable')
+// const tbody = datatable.querySelector('tbody')
+// const thead = datatable.querySelector('thead')
 
-const columnsTable = columns.map(column =>(
-    `<th>${column}<th>`
-));
+// const columns = ['id', 'Name', 'CPF', 'Phone', 'Email'];
 
-thead.rows.item(0).innerHTML = columnsTable.join('');
+// const rows = users
 
-// for(row of rows){
-const rowsTable = rows.map(row =>(
-    `
-    <tr>
-        <td>${row.name}</td>
-        <td>${row.CPF}</td>
-        <td>${row.Phone}</td>
-        <td>${row.email}</td>
-    </tr>
-    `
-));
+// const columnsTable = columns.map(column =>(
+//     `<th>${column}<th>`
+// ));
 
+// thead.rows.item(0).innerHTML = columnsTable.join('');
+
+// // for(row of rows){
+// const rowsTable = rows.map(row =>(
+//     `
+//     <tr>
+//         <td>${row.name}</td>
+//         <td>${row.CPF}</td>
+//         <td>${row.Phone}</td>
+//         <td>${row.email}</td>
+//     </tr>
+//     `
+// ));
+
+// // }
+// tbody.innerHTML = rowsTable.join('');
 // }
-tbody.innerHTML = rowsTable.join('');
-}
 
 const tbody = document.querySelector('tbody');
 const nameUser = document.querySelector('formName');
 const cpf = document.querySelector('formCpf');
 const phone = document.querySelector('formPhone');
 const email = document.querySelector('formEmail');
-const btnSubmit = document.querySelector('btnSubmit');
+const btnSubmit = document.querySelector('#btnSubmit');
 
 let itens = ''; //itens para manipulação das informações do localstorage
 let id; //id que serve para pegar o index do array no localstorage
 
 //abaixo pega os itens da LocalStorage ou retorna um array vazio caso não haja, mas tem a API
-const getItensLS = () => JSON.parse(localStorage.getItem('lsFunction')) ?? [];
+const getItensLS = () => JSON.parse(localStorage.getItem('lsFunction'));
 const setItensLS = () => localStorage.setItem('lsFunction', JSON.stringify(itens));
 
 //função para iniciar com as informações da LS, ou que retornam da API
@@ -169,7 +174,26 @@ function insert(edit = false, index = 0){ //vem como padrao false, caso seja edi
         phone.value = '';
         email.value = '';
     }
-
-
-
 } 
+
+btnSubmit.onclick = e => {
+  
+    if (nameUser.value == '' || cpf.value == '' || phone.value == '' || email.value == '') {
+      return
+    } //verifica nulos e vazios
+  
+    e.preventDefault();
+  
+    if (id !== undefined) { // diferente de undefined, é pq veio de edição, atualiza com novos valores ou faz o push em valores novos
+      itens[id].nameUser = nameUser.value
+      itens[id].cpf = cpf.value
+      itens[id].phone = phone.value
+      itens[id].email = email.value
+    } else {
+      itens.push({'name': nameUser.value, 'cpf': cpf.value, 'phone': phone.value, 'email': email.value})
+    }
+  
+    setItensLS() // seta os novos itens na LS  
+    loadInformation() // carrega as novas informações
+    id = undefined // id undefined para pegar novo
+  }
