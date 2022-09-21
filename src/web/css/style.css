@@ -26,12 +26,18 @@ input{
         
 }
 
-#landPage {
+body {
    background-color: rgb(2,0,36); 
    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 35%, rgb(226, 230, 231) 100%);
    background-size: cover;
    width: 100%;
    height: 100%;
+}
+
+#header{
+    background-color: white;
+    height: 80px;
+    width: fit-content;
 }
 
 img {
@@ -61,19 +67,19 @@ img {
     opacity: 70%;
 }
 
-#submitButton{
+#submitButton, #btnSubmit{
     font-family: Helvetica;
     background-color: #00c8b3;
     color: #ffffff;
     justify-content: center;
     border-radius: 25px;
     border-color: #00c8b3;
-    width: 200px;
-    height: 50px;
+    width: 300px;
+    height: 40px;
     font-size: 22px;
     cursor: pointer;
    }
-#submitButton:hover{
+#submitButton:hover, #btnSubmit:hover{
     opacity: 70%;
 }
 
@@ -84,8 +90,8 @@ img {
     justify-content: center;
     border-radius: 25px;
     border-color: #f6f6f6;
-    width: 200px;
-    height: 50px;
+    width: 300px;
+    height: 40px;
     font-size: 22px;
     cursor: pointer;
 }
