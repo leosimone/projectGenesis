@@ -1,60 +1,127 @@
-async function handleClick() {
-    const ul = document.getElementById('usersApi');
-    const list = document.createDocumentFragment();
+window.onload = async function(){
+    const resp = await handleClick();
+    // createUsersTable(); 
+   // await appendUsers(resp);
+     
+};
+async function handleClick() { 
     const url = 'https://private-847f5-ivangenesis.apiary-mock.com/users';
-
-    const users = await fetch('https://private-847f5-ivangenesis.apiary-mock.com/users').then(async (res) => {
+    const users = await fetch(url).then(async (res) => {
     const response = await res.json()
     return response;
 });
+    // return users
 
-// const newTable = document.createElement("table");
-const thead = document.createElement("thead");
- const tbody = document.createElement("tbody");
-// const td = document.createElement("td");
+const usersInfo = document.querySelector(".container");
+let headers = ['Name', 'CPF', 'Phone', 'Email'];
 
-// td.innerHTML = `${users[0].name}`;
-// td.innerHTML = `${users[0].cpf}`;
-// td.innerHTML = `${users[0].phone}`;
-// td.innerHTML = `${users[0].email}`;
+const createUsersTable = () => {
 
-// newTable.appendChild(header);
-// newTable.appendChild(body);
+    console.log('teste3');
+
+    console.log('teste2');
+    const usersTable = document.createElement('table');
+    usersTable.className = 'usersTable'; //cria tabela
+
+    const usersTableHead = document.createElement('thead');
+    usersTableHead.className = 'usersTableHead'; //head da tabela
+
+    const usersTableHeaderRow = document.createElement('tr');
+    usersTableHeaderRow.className = 'usersTableHeaderRow'; //linha dos headers
+
+    headers.forEach(header =>{
+    const userHeader = document.createElement('th');
+    userHeader.innerText = header; //iteração do header
+    usersTableHeaderRow.append(userHeader);
+});
+
+    usersTableHead.append(usersTableHeaderRow);
+    usersTable.append(usersTableHead); //append da coluna do head ao elemento head
+
+    const usersTableBody = document.createElement('tbody'); //cria body
+    usersTableBody.className = 'usersTableBody';
+    usersTable.append(usersTableBody); //coloca o body na tabela
+
+    usersInfo.append(usersTable); //coloca a tabela na div do usersInfo
+    
+}
+
+const appendUsers = (response) => {
+    const users = response;
+    for(const user of users){
+    const usersInfoTable = document.querySelector('.usersTable'); //localiza tabela criada
+    console.log(users);
+    const usersTableBodyRow = document.createElement('tr');
+    usersTableBodyRow.className = 'usersTableBodyRow'; //cria a linha
+
+    const usersName = document.createElement('td');
+    usersName.innerText = user.name; //linha do nome
+
+    const usersCpf = document.createElement('td');
+    usersCpf.innerText = user.cpf; //linha do cpf
+    
+    const usersPhone = document.createElement('td');
+    usersPhone.innerText = user.phone; //linha do phone
+
+    const usersEmail = document.createElement('td');
+    usersEmail.innerText = user.email; //linha do nome
+
+    usersTableBodyRow.append(usersName, usersCpf, usersPhone, usersEmail); //coloca a informações nas linhas
+    usersInfoTable.append(usersTableBodyRow);
+    appendUsers(users);
+}}
+}
+
+
+//const newTable = document.createElement("table");
+// const thead = document.createElement("thead");
+
 // newTable.appendChild(td);
 // document.getElementById("usersApi").appendChild(newTable);
 
 
-const columns = ['id', 'Name', 'CPF', 'Phone', 'Email'];
-const rows = users
+// td.innerHTML = `${user.name}`;
+// td.innerHTML = `${user.cpf}`;
+// td.innerHTML = `${user.phone}`;
+// td.innerHTML = `${user.email}`;
 
-const columnsTable = columns.map(column =>(
-    `<th>${column}<th>`
-));
-
-    // thead.rows.item(0).innerHTML = columnsTable.join('');
-
- for(row of rows){
-const rowsTable = rows.map(row =>(
-    `
-    <tr>
-        <td>${row.name}</td>
-        <td>${row.CPF}</td>
-        <td>${row.Phone}</td>
-        <td>${row.email}</td>
-    </tr>
-    `
-));
-tbody.innerHTML = rowsTable.join('');
-}
+// newTable.appendChild(header);
+// newTable.appendChild(body);
 
 
 
 
+// const columns = ['id', 'Name', 'CPF', 'Phone', 'Email'];
+// const rows = users
+
+// const columnsTable = columns.map(column =>(
+//     `<th>${column}<th>`
+// ));
+
+//     // thead.rows.item(0).innerHTML = columnsTable.join('');
+
+//  for(row of rows){
+// const rowsTable = rows.map(row =>(
+//     `
+//     <tr>
+//         <td>${row.name}</td>
+//         <td>${row.CPF}</td>
+//         <td>${row.Phone}</td>
+//         <td>${row.email}</td>
+//     </tr>
+//     `
+// ));
+// tbody.innerHTML = rowsTable.join('');
+// }
 
 
 
 
-}
+
+
+
+
+
 
 function getInfo(){
 
