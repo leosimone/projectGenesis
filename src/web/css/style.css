@@ -24,6 +24,15 @@ html, body{
     
 }
 
+#enterUsers{
+    position: relative;
+    text-align: center;
+}
+
+#enterUsers:hover{
+    opacity: 70%;
+}
+
 input:focus::placeholder {
     color: transparent;
   }
@@ -48,7 +57,7 @@ h2{
 
 body {
    background-color: rgb(2,0,36); 
-   background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(151, 180, 185) 35%, rgb(250, 251, 252) 100%);
+   background: linear-gradient(90deg, rgb(195, 196, 236) 0%, rgb(151, 180, 185) 35%, rgb(250, 251, 252) 100%);
    background-size: cover;
    width: 100%;
    height: 100%;
@@ -60,13 +69,10 @@ body {
     width: fit-content;
 }
 
-img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+#image{
+    justify-content: center;
+    text-align: center;
+    display: block;
 }
 
 
@@ -97,17 +103,19 @@ body{
 }
 
 #enterButton{
-    background-color: #1646a0;
+    background-color: transparent;
     color: #fff;
     justify-content: center;
     border: 2px solid #FFF;
     border-radius: 25px;
-    height: 50px;
+    width: 300px;
+    height: 40px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 22px;
     cursor: pointer;
     transition: 0.4s;
+    text-align: center;
    }
 
 #enterButton:hover{

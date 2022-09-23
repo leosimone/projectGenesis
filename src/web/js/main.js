@@ -46,7 +46,9 @@ const createUsersTable = () => {
     
 }
 
-const appendUsers = (response) => {
+// const responseLength = response.length;
+for(let i = 0; i < 4; i++){
+    const appendUsers = (response) => {
     const users = response;
     for(const user of users){
     const usersInfoTable = document.querySelector('.usersTable'); //localiza tabela criada
@@ -70,6 +72,7 @@ const appendUsers = (response) => {
     usersInfoTable.append(usersTableBodyRow);
     appendUsers(users);
 }}
+}
 }
 
 
