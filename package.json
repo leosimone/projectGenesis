@@ -4,5 +4,18 @@
   "main": "index.js",
   "repository": "https://github.com/leosimone/projectGenesis.git",
   "author": "Leonardo Simone <leosimone@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@babel/preset-env": "^7.19.1",
+    "babel": "^6.23.0",
+    "babel-jest": "^29.0.3",
+    "jest": "^29.0.3",
+    "ts-jest": "^29.0.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  }
 }

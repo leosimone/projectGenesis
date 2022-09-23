@@ -1,9 +1,8 @@
-console.log('started');
-
-window.onload = function () {
+// console.log('started');
+    window.onload = function () {
     console.log('onload');
     startup(); //carregando função que traz as informações
-};
+
 
 async function startup() {
     console.log('startup');
@@ -19,7 +18,7 @@ async function startup() {
     addUserBtn.addEventListener('click', (e) => addUser(e), false); //adicionando users
 }
 
-function addUser(e) {
+ function addUser(e) {
     e.preventDefault();
 
     const nameUser = document.querySelector('#inputName');
@@ -50,6 +49,7 @@ function addUser(e) {
     //depois do push do array de users, chama função para mostrar em tela
 
     renderUsers();
+    return localStorage.setItem('users', JSON.stringify(users));
 }
 
 async function fetchUsers() { //fetch das informações da API
@@ -70,6 +70,7 @@ async function fetchUsers() { //fetch das informações da API
             }),
         ),
     );
+    return users;
 }
 
 async function renderUsers() { //renderizando as informações em tabela na tela
@@ -176,3 +177,4 @@ function uuidv4() {
     );
 }
 
+}
