@@ -9,7 +9,7 @@ async function startup() {
 
     const tbody = document.querySelector('#tbody');
     const addUserBtn = document.querySelector('#btnSubmit');
-
+    addUserBtn.setAttribute('id', 'lockedButton')
     if (!localStorage.getItem('users')) { 
         await fetchUsers(); //pegando usuarios da api
     }
@@ -48,6 +48,7 @@ async function startup() {
     localStorage.setItem('users', JSON.stringify(users)); 
     //depois do push do array de users, chama função para mostrar em tela
 
+
     renderUsers();
     return localStorage.setItem('users', JSON.stringify(users));
 }
@@ -81,7 +82,7 @@ async function renderUsers() { //renderizando as informações em tabela na tela
     for (const user of users) {
         const tr = document.createElement('tr');
         for (const prop in user) {
-            if (prop !== 'id') {
+            if (prop !== 'id') { //não listar o id dos novos usuários na tabela
                 const td = document.createElement('td');
                 td.innerHTML = user[prop];
                 tr.appendChild(td);

@@ -41,9 +41,15 @@ input{
     border:none;
     outline:none;
     border-bottom:1px solid #efeeed;
-        
+    background: transparent;
+       
 }
 
+form{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
 h2{
     text-align: center;
@@ -97,7 +103,7 @@ body{
     padding: 8px;
 }
 
-#infoTable td{
+#infoTable td, button{
     border-right: 1px solid #f8f8f8;
     font-size: 12px;
 }
@@ -135,6 +141,22 @@ td {
     border-bottom: 1px solid #ddd;
     padding: 2px;
   } */
+
+
+#editBtn, #removeBtn{
+    font-family: Helvetica;
+    background-color: #00c8b3;
+    color: #ffffff;
+    justify-content: center;
+    border-radius: 25px;
+    border-color: #00c8b3;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+}
 
 
 
