@@ -20,7 +20,7 @@ Difficulties faced:
 This project took me out of my confort zone for a few days. I wasn't dealing with front-end for quite a while, specially without any frameworks, so I had to
 remember some aspects of the technology. I didn't managed my days very well, spent too much time tryng to fetch and create
 a table that was getting and storing the informations correctly, what led me to have very few time with functions and styling.
-I decided to deliver my project, in the correct deadline, without some requirements (such as tests) instead of asking more time.
+I decided to deliver my project, in the correct deadline, without some requirements (such as tests) instead of asking more time. Probably I will work on this with time and try to make it perfect.
 
 I do know that this is not my best product, but considering the difficulties I'm ok.
 
